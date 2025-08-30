@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iagoudam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 22:49:53 by iagoudam          #+#    #+#             */
-/*   Updated: 2025/08/30 12:02:48 by iagoudam         ###   ########.fr       */
+/*   Created: 2025/08/30 17:39:57 by iagoudam          #+#    #+#             */
+/*   Updated: 2025/08/30 18:56:19 by iagoudam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb(void)
+void	ft_putchar(char c)
 {
-	char	a;
-	char	b;
-	char	c;
+	write (1, &c, 1);
+}
 
-	a = '0';
-	while (a <= '7' )
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		b = a + 1;
-		while (b <= '8' )
-		{
-			c = b + 1;
-			while (c <= '9' )
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a != '7' )
-					write(1, ", ", 2);
-				c++;
-			}
-			b++;
-		}
-		a++;
+		write (1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 0 && nb <= 9)
+	{
+		ft_putchar(nb + '0');
+	}
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
 }

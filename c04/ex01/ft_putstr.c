@@ -6,11 +6,19 @@
 /*   By: iagoudam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 08:00:32 by iagoudam          #+#    #+#             */
-/*   Updated: 2025/08/26 08:00:48 by iagoudam         ###   ########.fr       */
+/*   Updated: 2025/08/26 22:31:03 by iagoudam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-void ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
+	int	i;
 
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }

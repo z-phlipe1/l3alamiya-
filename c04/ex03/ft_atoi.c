@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iagoudam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 22:49:53 by iagoudam          #+#    #+#             */
-/*   Updated: 2025/08/30 12:02:48 by iagoudam         ###   ########.fr       */
+/*   Created: 2025/08/30 20:44:26 by iagoudam          #+#    #+#             */
+/*   Updated: 2025/08/30 22:11:43 by iagoudam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+int	ft_atoi(char *str)
 {
-	char	a;
-	char	b;
-	char	c;
+	int	i;
+	int	ichara;
+	int	result;
 
-	a = '0';
-	while (a <= '7' )
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 	{
-		b = a + 1;
-		while (b <= '8' )
-		{
-			c = b + 1;
-			while (c <= '9' )
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a != '7' )
-					write(1, ", ", 2);
-				c++;
-			}
-			b++;
-		}
-		a++;
+		i++;
 	}
+	ichara = 1;
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			ichara = (ichara * (-1));
+		}
+		i++;
+	}
+	result = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + str[i] - 48;
+		i++;
+	}
+	return (result * ichara);
 }
