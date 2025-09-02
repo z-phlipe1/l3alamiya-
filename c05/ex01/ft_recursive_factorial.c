@@ -6,7 +6,7 @@
 /*   By: iagoudam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 23:02:59 by iagoudam          #+#    #+#             */
-/*   Updated: 2025/08/31 23:27:22 by iagoudam         ###   ########.fr       */
+/*   Updated: 2025/09/02 05:48:53 by iagoudam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_recursive_factorial(int nb)
 	{
 		return (nb * ft_recursive_factorial(nb - 1));
 	}
+	return (0);
 }
 /*#include <stdio.h>
 int main ()
